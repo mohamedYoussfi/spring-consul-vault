@@ -22,9 +22,6 @@ public class MsVaultApplication {
     @Bean
     CommandLineRunner start(VaultTemplate vaultTemplate){
         return args -> {
-            MySecretData mySecretData=new MySecretData();
-            mySecretData.setUsername("ahmed");
-            mySecretData.setPassword("7654");
             Versioned.Metadata resp = vaultTemplate
                     .opsForVersionedKeyValue("secret")
                     .put("keypair", Map.of("privateKey","mySecret","publicKay","PK2"));
